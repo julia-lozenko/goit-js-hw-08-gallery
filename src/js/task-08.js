@@ -36,19 +36,20 @@ function createGalleryCards(items) {
 // Открытие модального окна по клику на элементе галереи.
 // Подмена значения атрибута src элемента img.lightbox__image.
 
-galleryContainer.addEventListener("click", openModal);
+galleryContainer.addEventListener("click", onOpenModal);
 
-function openModal(e) {
+function onOpenModal(e) {
   e.preventDefault();
 
   if (e.target.nodeName !== "IMG") {
     return;
   }
+
   const imgOriginalUrl = e.target.dataset.source;
   e.target.classList.add("current");
+  lightBoxImage.src = imgOriginalUrl;
 
   modalLightBox.classList.add("is-open");
-  lightBoxImage.src = imgOriginalUrl;
 };
 
 // - Закрытие модального окна по клику на кнопку  `button[data-action="close-lightbox"]`.
@@ -59,9 +60,9 @@ function openModal(e) {
 
 const closeBtn = document.querySelector('button[data-action="close-lightbox"]');
 
-closeBtn.addEventListener("click", closeModal);
+closeBtn.addEventListener("click", onCloseModal);
 
-function closeModal(e) {
+function onCloseModal(e) {
   modalLightBox.classList.remove("is-open");
 
   lightBoxImage.src = "";
