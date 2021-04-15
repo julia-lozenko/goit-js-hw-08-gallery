@@ -58,7 +58,7 @@ function onOpenModal(e) {
   // чтобы при следующем открытии модального окна,
   // пока грузится изображение, мы не видели предыдущее.
 
-const closeBtn = document.querySelector('button[data-action="close-lightbox"]');
+const closeBtn = document.querySelector('[data-action="close-lightbox"]');
 
 closeBtn.addEventListener("click", onCloseModal);
 
@@ -73,7 +73,7 @@ function onCloseModal(e) {
 // // Закрытие модального окна по клику на div.lightbox__overlay.
 
 const containerOverlay = document.querySelector(".lightbox__overlay");
-containerOverlay.addEventListener("click", closeModal);
+containerOverlay.addEventListener("click", onCloseModal);
 
 // - Закрытие модального окна по нажатию клавиши `ESC`.
 
