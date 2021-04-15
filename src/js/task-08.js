@@ -36,21 +36,19 @@ function createGalleryCards(items) {
 // Открытие модального окна по клику на элементе галереи.
 // Подмена значения атрибута src элемента img.lightbox__image.
 
-galleryContainer.addEventListener("click", onGalleryElClick);
+galleryContainer.addEventListener("click", openModal);
 
-function onGalleryElClick(e) {
+function openModal(e) {
   e.preventDefault();
 
   if (e.target.nodeName !== "IMG") {
     return;
   }
   const imgOriginalUrl = e.target.dataset.source;
-  console.log(e.target);
   e.target.classList.add("current");
-  
+
   modalLightBox.classList.add("is-open");
   lightBoxImage.src = imgOriginalUrl;
-
 };
 
 // - Закрытие модального окна по клику на кнопку  `button[data-action="close-lightbox"]`.
